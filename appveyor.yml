@@ -16,26 +16,26 @@ environment:
     - APPVEYOR_BUILD_WORKER_IMAGE: 'Visual Studio 2015'
       VCVARSALL: '%ProgramFiles(x86)%\Microsoft Visual Studio 14.0\VC\vcvarsall.bat'
       ARCHITECTURE: amd64_x86
-      ARCHIVE: VS2015_%CONFIGURATION%_WIDE_x86_%APPVEYOR_BUILD_NUMBER%
+      ARCHIVE: VS2015_%CONFIGURATION%_x86_%APPVEYOR_BUILD_NUMBER%
       GENERATOR: 'NMake Makefiles'
 
     - APPVEYOR_BUILD_WORKER_IMAGE: 'Visual Studio 2015'
       VCVARSALL: '%ProgramFiles(x86)%\Microsoft Visual Studio 14.0\VC\vcvarsall.bat'
       ARCHITECTURE: amd64
-      ARCHIVE: VS2015_%CONFIGURATION%_WIDE_x64_%APPVEYOR_BUILD_NUMBER%
+      ARCHIVE: VS2015_%CONFIGURATION%_x64_%APPVEYOR_BUILD_NUMBER%
       GENERATOR: 'NMake Makefiles'
 
     - APPVEYOR_BUILD_WORKER_IMAGE: 'Visual Studio 2015'
       VCVARSALL: '%ProgramFiles(x86)%\Microsoft Visual Studio 14.0\VC\vcvarsall.bat'
       ARCHITECTURE: amd64_arm
-      ARCHIVE: VS2015_%CONFIGURATION%_WIDE_ARM_%APPVEYOR_BUILD_NUMBER%
+      ARCHIVE: VS2015_%CONFIGURATION%_ARM_%APPVEYOR_BUILD_NUMBER%
       GENERATOR: 'NMake Makefiles'
 
 
     - APPVEYOR_BUILD_WORKER_IMAGE: 'Visual Studio 2017'
       VCVARSALL: '%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
       ARCHITECTURE: amd64_x86
-      ARCHIVE: VS2017_%CONFIGURATION%_WIDE_x86_%APPVEYOR_BUILD_NUMBER%
+      ARCHIVE: VS2017_%CONFIGURATION%_x86_%APPVEYOR_BUILD_NUMBER%
       GENERATOR: 'NMake Makefiles'
 
     - APPVEYOR_BUILD_WORKER_IMAGE: 'Visual Studio 2017'
@@ -47,7 +47,7 @@ environment:
     - APPVEYOR_BUILD_WORKER_IMAGE: 'Visual Studio 2017'
       VCVARSALL: '%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
       ARCHITECTURE: amd64_arm
-      ARCHIVE: VS2017_%CONFIGURATION%_WIDE_ARM_%APPVEYOR_BUILD_NUMBER%
+      ARCHIVE: VS2017_%CONFIGURATION%_ARM_%APPVEYOR_BUILD_NUMBER%
       GENERATOR: 'NMake Makefiles'
 
     - APPVEYOR_BUILD_WORKER_IMAGE: 'Visual Studio 2017'
