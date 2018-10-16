@@ -1,25 +1,35 @@
-cmake_minimum_required( VERSION 2.8.5 )
+cmake_minimum_required( VERSION 3.0 )
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "MinSizeRel" CACHE STRING "Choose the type of build, options are: Debug, Release, or MinSizeRel." FORCE)
+    message(STATUS "CMAKE_BUILD_TYPE not set, defaulting to MinSizeRel.")
+endif()
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_SOURCE_DIR}/cmake")
 
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Release)
+set(VER "1.0.0")
+if(BUILD_NUMBER)
+  string(APPEND VER ".${BUILD_NUMBER}")
+else()
+  string(APPEND VER ".0")
 endif()
 
-project(lpc21isp LANGUAGES C)
+project(lpc21isp VERSION ${VER} LANGUAGES C)
 
-if(CMAKE_HOST_SYSTEM_NAME MATCHES "OpenBSD")
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__FREEBSD__")
-elseif(APPLE)
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__APPLE__")
-endif()
+include (target_arch)
+get_target_arch(TARGET_ARCH)
+message(STATUS "Target ................. ${TARGET_ARCH}")
 
 if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
   add_definitions(-D_GNU_SOURCE)
-elseif (CMAKE_C_COMPILER_ID MATCHES "MSVC")
-  add_definitions(-D_CONSOLE -D_MBCS -D_CRT_SECURE_NO_WARNINGS)
 endif()
 
+if(MSVC)
+  add_definitions(-D_CONSOLE -D_MBCS -D_CRT_SECURE_NO_WARNINGS)
+  if(${TARGET_ARCH} STREQUAL "ARM" OR ${TARGET_ARCH} STREQUAL "ARM64")
+    add_definitions(-D_ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE=1)
+  endif()
+endif()
 
 add_executable(${PROJECT_NAME} 
   lpc21isp.c lpc21isp.h

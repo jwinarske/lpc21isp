@@ -7,3 +7,5 @@ obj/
 lpc21isp
 .*/
 .DS_Store
+build
+.vscode
