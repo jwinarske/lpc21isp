@@ -10,7 +10,8 @@ compiler:
 
 env:
   global:
-    secure: "c9PbUtsTElvTtYIr6fcaBSPR3/HZvyy26/1+3Fh++ZlbDOCbKq3DpOnFfjkLR8SKU/5Kny3m602rTdKiShjd0RX/4cKI/7z+Z/fvD5X/zbnFzoU6ZROee5KDrw+ssIdAMFTJYR2t/7eRrFuO7XZOeZD/5/oyTe7yL70c8Vs6AAkg/ozgH2ToUaG8lOuaJWXQcBSVcJWJrmRtEiBuDtGGLmU7sbrjNYUA107UYh0MbnJmmCHjJhI8seAYENrjzdQFp2+re4gpis4EZ6MMYjlAcNoIYX9O7G55Q51AM0I2hfrn4kBadyf26m5L2ry/gFWts4Qc5FSfq2a5JduIjHUOSRf3dJdyRhMBl6vrfQJiIeefBF18TWCr8IHALaTCfuNoWQtZYbtZjIU+ahVPuE3fnOvz2eUpFtirBqLU0iN1jSiMT0QueYfk+DZbS3ubO9Yb+zxYVrhnB2CTCv7hcMtspHTvEIlNS8/tV7KhnplgWD4y8KEkaBSGyoOvz7lVXoIz0zUIrLloO7mhthL2aWDMyQHzHR3jzPpSYacEeLaAONbc1K7aDb63BzwwgAWMFMrWE8XgI848U4GQaEZWQV4L+ZgaP7IlHUL12rb8quJmZ4/uOrvu7gslrU9+/3MypTRyiBouYMgYUCJhSL3Un/MZEVO5TKitW6P/qiXZSXxzago="
+    # COVERITY_SCAN_TOKEN
+    - secure: "CWdUmxMMLax8n/mjOgkFQNrhIA93reWbfi7T30onYIuAZJPAX1XmnVk4r2JsdOcEKCzGBYkXezgP1jLS+MrHhYFr013qZlHQY1aJlDZKZsu1umNZHFtGZ1v62sOMXvNvojG8V7KMu4egi2hgpG16HWLG1bUo0DV92N1gX9L+UXvJX3QGIe9Nug3xd9jmaNqH8rnkGPgi2MVnWcpl0jHR0KX0VmTjpGa8fvRA0jFeocnh3khQuJChl56MeoE6CQ3KQiIhEeO/oQVkMjBiKBsnrjAcHHs1XygmP1K1F9jgYexiRRLscTYBJvfZg7WEKQmdrlr3Fa75Qf/hz7wfLpW7nCp8jH2eWB4nLC/yZDfenxDJomxYrK5jglCNnWC5iwo3y3RxZu9+/PGzfcDnHTVB5dzmlAlKalXDKlBpgwa4IgXXddG9ToLHaMozGFVJ0FAofXkageFmPjAnf224ELPrnR7PCgaLyqC/Xm0425CxjF/Yz5ukjVF6F9AklC53Ho6hCIUeBnNwmEO7awi4nH6ksQxDbNIad6N/eMmVXcJdU8Sci1e3ja3MWtnHf/muKeZqRuby5fnAVq/5n9xZqqT47UEyynZjLbJqV5TDChTMuHM26o7+bjLU4LdntMWl/C+v6U4LUU4TwGB1RJ/95Mw2SkLzGU5HWrpVYBzkn7y2isg="
 
   matrix:
   - BUILD_TYPE=Debug
@@ -26,8 +27,8 @@ addons:
 
   coverity_scan:
     project:
-      name: jwinarske/lpc21isp
-      description: Build submitted via Travis CI
+      name: "jwinarske/lpc21isp"
+      description: "Build submitted via Travis CI"
     notification_email: joel.winarske@gmail.com
     build_command_prepend: mkdir build && cd build && cmake ..
     build_command: cmake --build . --target all
