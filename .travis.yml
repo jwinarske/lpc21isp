@@ -9,12 +9,13 @@ compiler:
 - clang
 
 env:
+  global:
+    secure: "c9PbUtsTElvTtYIr6fcaBSPR3/HZvyy26/1+3Fh++ZlbDOCbKq3DpOnFfjkLR8SKU/5Kny3m602rTdKiShjd0RX/4cKI/7z+Z/fvD5X/zbnFzoU6ZROee5KDrw+ssIdAMFTJYR2t/7eRrFuO7XZOeZD/5/oyTe7yL70c8Vs6AAkg/ozgH2ToUaG8lOuaJWXQcBSVcJWJrmRtEiBuDtGGLmU7sbrjNYUA107UYh0MbnJmmCHjJhI8seAYENrjzdQFp2+re4gpis4EZ6MMYjlAcNoIYX9O7G55Q51AM0I2hfrn4kBadyf26m5L2ry/gFWts4Qc5FSfq2a5JduIjHUOSRf3dJdyRhMBl6vrfQJiIeefBF18TWCr8IHALaTCfuNoWQtZYbtZjIU+ahVPuE3fnOvz2eUpFtirBqLU0iN1jSiMT0QueYfk+DZbS3ubO9Yb+zxYVrhnB2CTCv7hcMtspHTvEIlNS8/tV7KhnplgWD4y8KEkaBSGyoOvz7lVXoIz0zUIrLloO7mhthL2aWDMyQHzHR3jzPpSYacEeLaAONbc1K7aDb63BzwwgAWMFMrWE8XgI848U4GQaEZWQV4L+ZgaP7IlHUL12rb8quJmZ4/uOrvu7gslrU9+/3MypTRyiBouYMgYUCJhSL3Un/MZEVO5TKitW6P/qiXZSXxzago="
+
   matrix:
   - BUILD_TYPE=Debug
   - BUILD_TYPE=Release
   - BUILD_TYPE=MinSizeRel
-  global:
-    secure: "Fvel0wGnKvQNFiKCCpGYW+kWo/KWR57qj3MON6kwyKKMPuSEgRvfkRGaeAlwwbqbVuXblGtrz+dmhpp1SdDX13BwhLaBZeGoVb1KR+Yxco3uofT4qCvWsCXMJeOIbTmCqTQXncb5T7FpVljJSu3OBHVZ0oRIwr8WcqOYPjz7CGlSgftOommxDvWILCz/ResZfUzXBno4wrDiwgFF6J6DZct9oLE4r9LFH+kx+ZGFqEZLDIGyvCShhUtVqlajIxZj9vi7BKGYZIdaA6idX8ZOAWhC/lyurm2JIT6X3LfVNpVgoOExMRKb4RtSSOm7KmR+mxc5DilXhn7z9mGGN4cFIlIEByrj1SOaH5j2A25c4Xt0fjkVVf0lo0OAb0hwqMhVB9GJqf7/KIyo9+CYmZACMFLsll5Be2Q8bphFPw9N1OKIeMpR44HBolCMxqLfL5VaC5yMbhnvleD1cbfq2gyAcVeLCTO2qgr/gEBQFqLXbErZyoXYeTIQKMR2MfYIFRYewONxEzfYDFR0YWiq5Bzk3W2R5zlTFiPQFRFRujhlC5y+0DhWAc2EWWDZrGrTn+BcuGtSgy3pEnk/MO3j6lEvqBkVo3AXzi5J8vsvy91uM2YMFbyj5kjZiLJsO4dpUPtqnb2MsYY3eYouF4kAakbqBYzeaOmWYjDxPjS3rRugEX8="
 
 addons:
   apt:
@@ -22,9 +23,10 @@ addons:
     - libncurses5-dev
     - libncursesw5-dev
     - libxaw7-dev
+
   coverity_scan:
     project:
-      name: "jwinarske/lpc21isp"
+      name: jwinarske/lpc21isp
       description: Build submitted via Travis CI
     notification_email: joel.winarske@gmail.com
     build_command_prepend: mkdir build && cd build && cmake ..
